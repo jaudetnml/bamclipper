@@ -213,15 +213,11 @@ sub reconstruct_alignment {
     my $print_original_line = 0;
     my ($left_alignpos, $right_alignpos) = min_max(grep {defined $_ && $_ ne "*"} @cigar_refpos[1..$cigar_total_length]);
     my $primers = undef;
-    if ($alignmentdirection eq "+") {
-	if (defined $position2amplicon_positive{$chrom}{$left_alignpos}) {
+    if (defined $position2amplicon_positive{$chrom}{$left_alignpos}) {
 	    $primers = $position2amplicon_positive{$chrom}{$left_alignpos};
-	}
-    } elsif ($alignmentdirection eq "-") {
-	if (defined $position2amplicon_negative{$chrom}{$right_alignpos}) {
+    } elsif (defined $position2amplicon_negative{$chrom}{$right_alignpos}) {
 	    $primers = $position2amplicon_negative{$chrom}{$right_alignpos};
 	}
-    }
     if (!defined $primers) {
 	$print_original_line = 1;
     } else {

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # bamclipper.sh
-VERSION=1.1.1
+VERSION=1.1.2
 NTHREAD=1
 SAMTOOLS="samtools"
 PARALLEL="parallel"
